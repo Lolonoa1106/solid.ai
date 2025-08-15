@@ -1,0 +1,42 @@
+<svg width="131" height="135" viewBox="0 0 131 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <clipPath id="corner-clip">
+            <path
+                d="M64.7451 0.875C72.8383 0.875 80.6105 3.98943 86.459 9.55469L87.0186 10.1016L121.273 44.3564C127.181 50.2639 130.5 58.2669 130.5 66.6211V134.25H0.5V0.875H64.7451Z" />
+        </clipPath>
+        <linearGradient id="paint0_linear_2571_626" x1="123.75" y1="7.625" x2="100.312" y2="31.0625"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#191919" />
+            <stop offset="1" stop-color="#121212" />
+        </linearGradient>
+        <linearGradient id="paint1_linear_2571_626" x1="123.5" y1="9.25" x2="98.5" y2="40.375"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#262626" />
+            <stop offset="1" stop-color="#191919" />
+        </linearGradient>
+        <radialGradient id="paint2_radial_2571_626" cx="0" cy="0" r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(136.5 -3.75) rotate(136.017) scale(119.52 119.52)">
+            <stop stop-color="#202020" />
+            <stop offset="1" stop-color="#121212" />
+        </radialGradient>
+        <radialGradient id="paint3_radial_2571_626" cx="0" cy="0" r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(131 0.374882) rotate(126.933) scale(68.65 68.65)">
+            <stop stop-color="#2D2D2D" />
+            <stop offset="1" stop-color="#202020" />
+        </radialGradient>
+    </defs>
+
+    <!-- Fill -->
+    <path
+        d="M64.7451 0.875C72.8383 0.875 80.6105 3.98943 86.459 9.55469L87.0186 10.1016L121.273 44.3564C127.181 50.2639 130.5 58.2669 130.5 66.6211V134.25H0.5V0.875H64.7451Z"
+        fill="url(#paint2_radial_2571_626)" />
+
+    <!-- Top and right border only -->
+    <path
+        d="M64.7451 0.875C72.8383 0.875 80.6105 3.98943 86.459 9.55469L87.0186 10.1016L121.273 44.3564C127.181 50.2639 130.5 58.2669 130.5 66.6211V134.25"
+        stroke="url(#paint3_radial_2571_626)"
+        clip-path="url(#corner-clip)" />
+</svg>
+    

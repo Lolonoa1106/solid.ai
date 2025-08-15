@@ -1,0 +1,101 @@
+@use "variables" as *;
+@use "general/utils" as *;
+@use "general/keyframes" as *;
+
+.logo-slider {
+  position: relative;
+  z-index: 1;
+  order: 3;
+  margin-top: -60px;
+  @include breakpoint(sm) {
+    padding: 0 0 40px;
+    margin-top: auto;
+  }
+
+  p {
+    font-family: Darker Grotesque;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
+    color: $white;
+    max-width: 151px;
+    margin: 0 auto;
+    @include breakpoint(sm) {
+      font-size: 22px;
+      line-height: 18px;
+      max-width: 100%;
+    }
+  }
+
+  .content {
+    position: relative;
+    margin-top: 16px;
+    overflow: hidden;
+    @include breakpoint(sm) {
+      margin-top: 50px;
+    }
+
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 20%;
+      background: linear-gradient(to right, #000, rgba(0, 0, 0, 0));
+      z-index: 2;
+    }
+    &:before {
+      inset-inline-start: 0;
+    }
+    &:after {
+      inset-inline-end: 0;
+      transform: scale(-1);
+    }
+
+    &__body {
+      position: relative;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      width: max-content;
+      animation: marquee 40s linear infinite;
+      animation-play-state: running;
+
+    }
+
+    &__item {
+      position: relative;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        &:before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(83.4deg, #CAB8F9 2.39%, #875FF2 36.45%, #6231E6 77.24%, #381D89 109.32%);
+          -webkit-mask-image: var(--mask-image);
+          -webkit-mask-size: cover;
+          -webkit-mask-repeat: no-repeat;
+          mask-image: var(--mask-image);
+          mask-size: cover;
+          mask-repeat: no-repeat;
+          opacity: 1;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+    &:hover {
+      .content__body {
+        animation-play-state: paused;
+      }
+    }
+  }
+}

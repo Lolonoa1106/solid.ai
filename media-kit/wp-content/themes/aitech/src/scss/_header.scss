@@ -1,0 +1,580 @@
+@use "variables" as *;
+@use "general/utils" as *;
+
+.site-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: all 1s;
+    background: $button-bg;
+  @include breakpoint(sm) {
+    background: transparent;
+  }
+
+  &:before {
+    @include breakpoint(sm) {
+      content: "";
+      background: rgba(1, 2, 10, 0.6);
+      backdrop-filter: blur(10.100000381469727px);
+      height: 100%;
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      width: 16px;
+    }
+    @media only screen and (min-width: 1480px) {
+      width: calc(50% - 714px);
+    }
+  }
+  &:after {
+    @include breakpoint(sm) {
+      content: "";
+      background: rgba(1, 2, 10, 0.6);
+      backdrop-filter: blur(10.100000381469727px);
+      height: 100%;
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      width: 16px;
+    }
+    @media only screen and (min-width: 1480px) {
+      width: calc(50% - 714px);
+    }
+  }
+
+  .container {
+    max-width: 1460px;
+    position: relative;
+    &:after {
+      content: "";
+      background-image: url("/wp-content/themes/aitech/src/img/header-liner-mobile.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+      inset-block-end: 0;
+      @include breakpoint(xs) {
+        background-size: cover;
+      }
+      @include breakpoint(sm) {
+        background-image: url("/wp-content/themes/aitech/src/img/header-liner.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+        height: 33px;
+        inset-block-end: 0;
+      }
+    }
+  }
+  .header-holder {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 65px;
+      @include breakpoint(sm) {
+        min-height: 123px;
+      }
+      &:before {
+        @include breakpoint(sm) {
+          content: "";
+          background: rgba(1, 2, 10, 0.6);
+          backdrop-filter: blur(10.100000381469727px);
+          mask-image: url(/wp-content/themes/aitech/src/img/header-mask.webp);
+          mask-repeat: no-repeat;
+          mask-position: center bottom;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          inset-inline-start: 0;
+          inset-block-start: 0;
+        }
+      }
+
+
+      .logo {
+        position: relative;
+        z-index: 1;
+        @include breakpoint(sm) {
+          margin-bottom: 15px;
+        }
+        @include breakpoint(md) {
+          margin-inline-start: 18px;
+          margin-bottom: 0;
+        }
+        a {
+          display: block;
+          max-width: 111px;
+          line-height: 0;
+          @include breakpoint(sm) {
+            max-width: 210px;
+          }
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+      .main-navigation {
+        display: none;
+        margin-bottom: 20px;
+        @include breakpoint(sm) {
+          display: block;
+        }
+        .menu {
+          display: flex;
+          align-items: center;
+          column-gap: 24px;
+          li {
+            a {
+              position: relative;
+              padding: 24px 0;
+              font-size: 16px;
+              line-height: 18px;
+              font-weight: 400;
+              color: $white;
+              transition: all .3s;
+              &:after {
+                content: "";
+                width: calc(100% + 4px);
+                height: 3px;
+                border-radius: 35px;
+                background: $purple-menu-accent;
+                box-shadow: 0 0 32px 16px rgba(138, 93, 255, 0.3);
+                position: absolute;
+                inset-block-end: -6px;
+                inset-inline-start: -2px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all .3s;
+              }
+              &:hover {
+                color: rgba(255, 255, 225, .4);
+              }
+            }
+            &.has-submenu {
+              a {
+                padding: 24px 21px 24px 0;
+                position: relative;
+                &:before {
+                  content: "";
+                  background-image: url("/wp-content/themes/aitech/src/img/menu-arrow.svg");
+                  background-repeat: no-repeat;
+                  width: 18px;
+                  height: 18px;
+                  object-fit: contain;
+                  position: absolute;
+                  inset-inline-end: 0;
+                  inset-block-start: 50%;
+                  transform: translateY(-50%);
+                }
+              }
+              .submenu-block {
+                position: absolute;
+                width: 100%;
+                top: calc(100% + 10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all .3s;
+                max-width: 890px;
+                inset-inline-start: 50%;
+                transform: translateX(-50%);
+
+                .submenu-block-holder {
+                  background: linear-gradient(0deg, rgba(117, 104, 151, 0.3), rgba(117, 104, 151, 0.3)),
+                  radial-gradient(69.4% 42.18% at 5.81% -6.31%, rgba(171, 143, 246, 0.5) 0%, rgba(31, 18, 84, 0.5) 100%);
+                  mask-image: url("/wp-content/themes/aitech/src/img/submenu-mask.webp");
+                  mask-repeat: no-repeat;
+                  mask-position: center top;
+                  mask-size: cover;
+                  position: relative;
+                  overflow: hidden;
+                  border-radius: 24px;
+
+                  &:after {
+                    content: "";
+                    width: calc(100% - 2px);
+                    height: calc(100% - 2px);
+                    position: absolute;
+                    inset-block-start: 1px;
+                    inset-inline-start: 1px;
+                    mask-image: url("/wp-content/themes/aitech/src/img/submenu-mask.webp");
+                    mask-repeat: no-repeat;
+                    mask-position: center top;
+                    mask-size: cover;
+                    background: radial-gradient(56.12% 79.49% at 17.19% 19.61%, #190B30 0%, #01020A 100%);
+                    border-radius: 24px;
+                  }
+
+                  .content-holder {
+                    position: relative;
+                    z-index: 1;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 40px 48px;
+                    column-gap: 20px;
+                    .text-block {
+                      max-width: 250px;
+                      .heading {
+                        font-family: 'Darker Grotesque', sans-serif;
+                        font-size: 24px;
+                        line-height: 24px;
+                        font-weight: 600;
+                        color: $menu-heading;
+                        margin-bottom: 16px;
+                      }
+                      p {
+                        font-size: 12px;
+                        line-height: 16px;
+                        font-weight: 400;
+                        color: $light-purple;
+                        margin: 0;
+                      }
+                    }
+                    .links-holder {
+                      width: 55%;
+                      ul {
+                        display: flex;
+                        justify-content: space-between;
+                        column-gap: 40px;
+                        row-gap: 16px;
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        flex-wrap: wrap;
+                        li {
+                          width: calc(50% - 20px);
+                          a {
+                            padding: 0;
+                            display: flex;
+                            column-gap: 12px;
+                            align-items: center;
+
+                            &:before,
+                            &:after {
+                              display: none;
+                            }
+                            .image {
+                              border: 1px solid rgba(117, 104, 151, 0.3);
+                              background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(25, 11, 48, 0.2) 0%, rgba(1, 2, 10, 0.2) 100%);
+                              border-radius: 4px;
+                              width: 100%;
+                              max-width: 40px;
+                              height: 40px;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: none;
+                              }
+                            }
+                            .content {
+                              .title {
+                                font-size: 14px;
+                                line-height: 16px;
+                                color: $light-purple;
+                                margin-bottom: 4px;
+                              }
+                              p {
+                                font-size: 10px;
+                                line-height: 12px;
+                                color: rgba(225, 227, 254, .4);
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              &:hover {
+                a {
+                  &:before {
+                    background-image: url("/wp-content/themes/aitech/src/img/menu-arrow-active.svg");
+                    background-repeat: no-repeat;
+                  }
+                }
+              }
+            }
+            &.active {
+              a {
+                color: rgba(255, 255, 225, .4);
+                &:after {
+                  opacity: 1;
+                  visibility: visible;
+                }
+              }
+              &.has-submenu {
+                a {
+                  &:before {
+                    background-image: url("/wp-content/themes/aitech/src/img/menu-arrow-active.svg");
+                    background-repeat: no-repeat;
+                  }
+                }
+                .submenu-block {
+                  top: calc(100% - 15px);
+                  visibility: visible;
+                  opacity: 1;
+                }
+              }
+            }
+            &.active {
+              a {
+                color: rgba(255, 255, 225, .4);
+                &:after {
+                  opacity: 1;
+                  visibility: visible;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .buttons-block {
+        display: none;
+        column-gap: 8px;
+        align-items: center;
+        @include breakpoint(sm) {
+          display: flex;
+        }
+        .vote-logo {
+          position: relative;
+          z-index: 1;
+          width: 126px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          border-radius: 14px;
+          background: #070707;
+          overflow: hidden;
+          padding: 0 5px;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .ajeeb {
+          z-index: 10;
+          margin-right: 0;
+          width: 110px;
+          height: 40px;
+          margin-top: 5px;
+          display: none;
+          @include breakpoint(sm) {
+            display: block;
+          }
+
+          &::part(ctk-clickable) {
+            left: auto !important;
+            right: 281px !important;
+          }
+        }
+      }
+
+      @media (max-width: 1280px){
+        .button-span {
+          padding-left: 25px;
+          padding-right: 25px;
+        }
+      }
+
+      .mobile-menu-btn {
+        cursor: pointer;
+        width: 47px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        @include breakpoint(sm) {
+          display: none;
+        }
+        img {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          transition: all .3s;
+          &.menu-burger {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  .mobile-sidenav {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: calc(100vh - 65px);
+    top: -100%;
+    background: radial-gradient(106.26% 46.98% at 21.73% 67%, #190B30 0%, #01020A 100%);
+    transition: all .3s;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    .mobile-menu-holder {
+      padding: 32px 16px;
+      & > ul {
+        max-height: calc(100vh - 200px);
+        overflow: auto;
+        & > li {
+          margin-bottom: 16px;
+          & > a {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 40px;
+            line-height: 40px;
+            font-weight: 700;
+            color: $white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          &.has-submenu {
+            margin-bottom: 32px;
+            & > a {
+              position: relative;
+              padding-bottom: 12px;
+              &:before {
+                content: "";
+                background: linear-gradient(269.83deg, #CAB8F9 0%, #875FF2 28.76%, #6231E6 48.47%, #381D89 69.35%, #020416 90.29%);
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                inset-inline-start: 0;
+                inset-block-end: 0;
+                opacity: .2;
+                transform: scale(-1);
+                transition: all .3s;
+              }
+              &:after {
+                content: "";
+                background: url("/wp-content/themes/aitech/src/img/menu-arrow-down.svg"), radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(25, 11, 48, 0.2) 0%, rgba(1, 2, 10, 0.2) 100%);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 16px;
+                width: 32px;
+                height: 32px;
+                border: 1px solid rgba(117, 104, 151, 0.3);
+                position: absolute;
+                inset-inline-end: 0;
+                inset-block-start: 50%;
+                transform: translateY(-50%);
+                transition: all .3s;
+              }
+            }
+            .hidden-block {
+              opacity: 0;
+              visibility: hidden;
+              height: 0;
+              overflow: hidden;
+              transition: all .3s;
+              ul {
+                margin-top: 12px;
+                li {
+                  a {
+                    display: block;
+                    padding: 12px 0;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: $light-purple;
+                    position: relative;
+                    &:after {
+                      content: "";
+                      background: linear-gradient(269.83deg, #CAB8F9 0%, #875FF2 28.76%, #6231E6 48.47%, #381D89 69.35%, #020416 90.29%);
+                      width: 100%;
+                      height: 1px;
+                      position: absolute;
+                      inset-inline-start: 0;
+                      inset-block-end: 0;
+                      transform: scale(-1);
+                      opacity: .2;
+                    }
+                  }
+                }
+              }
+            }
+            &.active {
+              & > a {
+                &:before {
+                  opacity: 1;
+                }
+                &:after {
+                  background: url("/wp-content/themes/aitech/src/img/menu-arrow-up.svg"), radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(25, 11, 48, 0.2) 0%, rgba(1, 2, 10, 0.2) 100%);
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  background-size: 16px;
+                }
+              }
+              .hidden-block {
+                opacity: 1;
+                visibility: visible;
+              }
+            }
+          }
+        }
+      }
+    }
+    .mobile-label {
+      margin: auto auto 32px;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(0deg, rgba(117, 104, 151, 0.2), rgba(117, 104, 151, 0.2)),
+      radial-gradient(74.37% 173.73% at 3.12% 101.85%, rgba(171, 143, 246, 0.5) 0%, rgba(31, 18, 84, 0.5) 100%);
+      border-radius: 16px;
+      padding: 12px 24px;
+      line-height: 0;
+      &:after {
+        content: "";
+        background: radial-gradient(51.25% 91.5% at 8.75% 82.41%, #190B30 0%, #01020A 100%);
+        border-radius: 16px;
+        position: absolute;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        inset-inline-start: 1px;
+        inset-block-start: 1px;
+      }
+      img {
+        position: relative;
+        z-index: 1;
+        width: 112px;
+        height: 30px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &.show-menu {
+    .header-holder {
+      .mobile-menu-btn {
+        img {
+          &.menu-burger {
+            opacity: 0;
+            visibility: hidden;
+          }
+          &.menu-cross {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+    .mobile-sidenav {
+      top: 100%;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

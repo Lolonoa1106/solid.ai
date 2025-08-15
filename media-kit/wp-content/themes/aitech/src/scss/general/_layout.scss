@@ -1,0 +1,311 @@
+@use "../_variables" as *;
+@use "utils" as *;
+
+.container {
+  margin: 0 auto;
+  max-width: 1352px;
+  padding: 0 16px;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none!important;
+  }
+}
+
+body {
+  &.grey-theme {
+    .site-header {
+      .container {
+        &:after {
+          background-image: url("/wp-content/themes/aitech/src/img/header-liner-grey-mobile.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          @include breakpoint(sm) {
+            background-image: url("/wp-content/themes/aitech/src/img/header-liner-grey.svg");
+          }
+
+        }
+        .header-holder {
+          .main-navigation {
+            .menu {
+              li {
+                a {
+                  color: rgba(255, 255, 255, .4);
+                  &:hover {
+                    color: $white;
+                  }
+                  &:after {
+                    box-shadow: 0 0 32px 16px rgba(255, 255, 255, 0.15);
+                    background: $white;
+                  }
+                }
+                &.active {
+                  a {
+                    color: $white;
+                  }
+                }
+                &.has-submenu {
+                  .submenu-block {
+                    .submenu-block-holder {
+                      background: linear-gradient(0deg, rgba(128, 128, 128, .3), rgba(128, 128, 128, .3)), radial-gradient(69.4% 42.18% at 5.81% -6.31%, rgba(170, 170, 170, 0.5) 0%, rgba(60, 60, 61, 0.5) 100%);
+                      &:after {
+                        background: radial-gradient(56.12% 79.49% at 17.19% 19.61%, #2d2d2e 0%, #101010 100%);
+                      }
+                      .content-holder {
+                        .links-holder {
+                          ul {
+                            li {
+                              a {
+                                .content {
+                                  .title {
+                                    color: $white;
+                                  }
+                                }
+                                .image {
+                                  border: 1px solid rgba(121, 121, 121, .3);
+                                  background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%);
+
+                                  img {
+                                    display: none;
+                                  }
+                                }
+                              }
+                              &:first-of-type {
+                                a {
+                                  .image {
+                                    background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%), url(/wp-content/themes/aitech/src/img/menu-icon1.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                  }
+                                }
+                              }
+                              &:nth-child(2) {
+                                a {
+                                  .image {
+                                    background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%), url(/wp-content/themes/aitech/src/img/menu-icon2.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                  }
+                                }
+                              }
+                              &:nth-child(3) {
+                                a {
+                                  .image {
+                                    background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%), url(/wp-content/themes/aitech/src/img/menu-icon3.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                  }
+                                }
+                              }
+                              &:nth-child(4) {
+                                a {
+                                  .image {
+                                    background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%), url(/wp-content/themes/aitech/src/img/menu-icon4.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                  }
+                                }
+                              }
+                              &:nth-child(5) {
+                                a {
+                                  .image {
+                                    background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%), url(/wp-content/themes/aitech/src/img/menu-icon5.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                  }
+                                }
+                              }
+                              &:nth-child(6) {
+                                a {
+                                  .image {
+                                    background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%), url(/wp-content/themes/aitech/src/img/menu-icon6.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                  }
+                                }
+                              }
+                              &:nth-child(7) {
+                                a {
+                                  .image {
+                                    background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%), url(/wp-content/themes/aitech/src/img/menu-icon7.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                  }
+                                }
+                              }
+                              &:nth-child(8) {
+                                a {
+                                  .image {
+                                    background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(57, 56, 58, .2) 0%, rgba(14, 14, 14, .2) 100%), url(/wp-content/themes/aitech/src/img/menu-icon8.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: auto;
+                                    background-position: center;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                        .text-block {
+                          .heading,
+                          p {
+                            color: $white;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .buttons-block {
+            .vote-logo {
+              background: #070707 url(/wp-content/themes/aitech/src/img/vote-logo.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: auto;
+              img {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      .mobile-sidenav {
+        .mobile-menu-holder {
+          & > ul {
+            & > li {
+              &.has-submenu {
+                & > a {
+                  &:before {
+                    background: linear-gradient(269.83deg, #c0bfc2 0%, #686769 28.76%, #6c6c6d 48.47%, #2e2e2f 69.35%, #141415 90.29%);
+                  }
+                  &:after {
+                    background: url(/wp-content/themes/aitech/src/img/menu-arrow-down-grey.svg), radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(45, 44, 45, .2) 0%, rgba(10, 10, 10, .2) 100%);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 16px;
+                  }
+                }
+                &.active {
+                  & > a {
+                    &:after {
+                      background: url(/wp-content/themes/aitech/src/img/menu-arrow-up-grey.svg), radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(45, 44, 45, .2) 0%, rgba(10, 10, 10, .2) 100%);
+                      background-repeat: no-repeat;
+                      background-position: center;
+                      background-size: 16px;
+                    }
+                  }
+                }
+                .hidden-block {
+                  ul {
+                    li {
+                      a {
+                        color: $white;
+                        &:after {
+                          background: linear-gradient(269.83deg, #a5a5a6 0%, #6d6c6f 28.76%, #4e4e4f 48.47%, #5a595c 69.35%, #1c1c1d 90.29%);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .site-footer {
+
+      .footer-upper {
+        &:after {
+          background-image: url(/wp-content/themes/aitech/src/img/footer-home-line.svg);
+        }
+
+        .contact-block {
+          .socials {
+            a {
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              background: radial-gradient(80% 87.5% at 12.5% 77.5%, rgba(25, 11, 48, 0.2) 0%, rgba(1, 2, 10, 0.2) 100%);
+              svg {
+                path.colored {
+                  fill: #7A7A7A;
+                }
+              }
+            }
+          }
+
+          .audit {
+            color: $white;
+          }
+
+          .contact-form-wrap {
+            color: $white;
+          }
+
+          .contact-form-wrap form {
+            .wpcf7-email {
+              background: rgba(255, 255, 255, .1);
+              border: 1px solid rgba(255, 255, 255, .15);
+              &::placeholder {
+                color: rgba(225, 225, 255, .5);
+              }
+            }
+
+            .wpcf7-submit {
+              color: $home-footer-button;
+              background: linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+              display: block;
+              position: absolute;
+            }
+          }
+        }
+        .navigation-wrap {
+          h5 {
+            color: $footer-home-links;
+            background: transparent;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+          }
+          a,
+          p {
+            color: $dark-grey-links;
+          }
+
+        }
+      }
+
+      .footer-lower {
+        p {
+          color: rgba(186, 186, 186, .6);
+        }
+        .footer-menu-privacy {
+          a {
+            color: rgba(186, 186, 186, .6);
+          }
+        }
+      }
+    }
+  }
+}

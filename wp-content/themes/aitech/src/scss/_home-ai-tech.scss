@@ -1,0 +1,184 @@
+@use "variables" as *;
+@use "general/utils" as *;
+
+
+.section-ai-tech {
+  padding: 56px 0;
+
+  @include breakpoint(sm) {
+    padding: 80px 0;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include breakpoint(sm) {
+      flex-direction: row;
+      gap: 32px;
+    }
+
+    .item {
+      position: relative;
+      width: calc(100% - 46px);
+      margin-left: 16px;
+      padding-left: 30px;
+
+
+      @include breakpoint(sm) {
+        width: 50%;
+        height: 837px;
+        padding-left: 0;
+      }
+
+      &:before {
+        content: '';
+        width: 102px;
+        height: 100%;
+        position: absolute;
+        background-image: url("/wp-content/themes/aitech/src/img/left-frame-grey.svg");
+        background-size: contain;
+        top: -40px;
+        left: -40px;
+        background-repeat: no-repeat;
+        z-index: 2;
+
+        @include breakpoint(sm) {
+          top: -66px;
+          left: -55px;
+          background-size: cover;
+        }
+      }
+
+      h3 {
+        display: flex;
+        align-items: center;
+        background: linear-gradient(90deg, #DDDDDD 1.76%, #444444 85.05%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        position: relative;
+        z-index: 1;
+
+        @include breakpoint(sm) {
+          margin-bottom: 24px;
+          padding-left: 24px;
+        }
+        img {
+          margin: 0 16px;
+        }
+      }
+
+      p {
+        color: $text-grey;
+        max-width: 440px;
+        padding-left: 16px;
+        position: relative;
+        z-index: 2;
+        font-size: 12px;
+
+        @include breakpoint(sm) {
+          padding-left: 40px;
+          font-size: 16px;
+        }
+      }
+
+      .primary-btn {
+        margin-top: 16px;
+        margin-left: 16px;
+        display: inline-block;
+        padding: 11px 20px;
+        position: relative;
+        text-align: center;
+        background: linear-gradient(90deg, #777777 0%, #222222 100%);
+        border-top-left-radius: 2px;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 2px;
+        width: 100%;
+        z-index: 2;
+        @include breakpoint(sm) {
+          width: fit-content;
+          padding: 11px 24px;
+          margin-top: 32px;
+          margin-left: 40px;
+        }
+        &:after {
+          content: "";
+          background: $button-bg;
+          position: absolute;
+          width: calc(100% - 4px);
+          height: calc(100% - 4px);
+          inset-inline-start: 2px;
+          inset-block-start: 2px;
+          opacity: 0;
+          visibility: hidden;
+          transition: all .3s;
+          border-top-left-radius: 2px;
+          border-top-right-radius: 16px;
+          border-bottom-left-radius: 16px;
+          border-bottom-right-radius: 2px;
+        }
+        span {
+          position: relative;
+          z-index: 1;
+          font-family: 'Roboto Flex', sans-serif;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 16px;
+          color: $white;
+          @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: 18px;
+          }
+        }
+
+        &[href=""] {
+          cursor: no-drop;
+          &:after {
+            opacity: 1;
+            visibility: visible;
+          }
+          span {
+            background: linear-gradient(90deg, #DDDDDD 1.76%, #444444 85.05%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+          }
+        }
+        &:hover {
+          &:after {
+            opacity: 1;
+            visibility: visible;
+          }
+          span {
+            background: linear-gradient(90deg, #DDDDDD 1.76%, #444444 85.05%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+          }
+        }
+      }
+
+      .bg-holder {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        @include breakpoint(sm) {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          inset-block-start: 0;
+          inset-inline-start: 0;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          @include breakpoint(sm) {
+            height: 84%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}

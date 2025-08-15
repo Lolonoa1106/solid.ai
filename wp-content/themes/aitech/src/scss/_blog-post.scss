@@ -1,0 +1,227 @@
+@use "variables" as *;
+@use "general/utils" as *;
+
+.type-post {
+  color: $white;
+
+  .container {
+    @include breakpoint(sm) {
+      max-width: 912px;
+    }
+  }
+
+  .entry-header, .entry-content {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .entry-header {
+    margin-top: 114px;
+
+    .back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: Roboto Flex;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 18px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: $white;
+      margin-bottom: 32px;
+
+      @include breakpoint(sm) {
+        position: absolute;
+        left: 32px;
+      }
+
+      span {
+        background-image: url(/wp-content/themes/aitech/src/img/back-btn.svg);
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 4px;
+      }
+    }
+
+    .post__info {
+      font-family: Roboto Flex;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: $light-grey;
+      display: flex;
+      gap: 8px;
+    }
+
+    h1 {
+      font-size: 32px;
+      line-height: 32px;
+      margin: 8px 0 24px;
+
+      @include breakpoint(sm) {
+        font-size: 64px;
+        line-height: 57px;
+        margin: 0 0 32px;
+      }
+    }
+
+    .post-author {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-family: Roboto Flex;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      margin-bottom: 58px;
+
+      img {
+        width: 36px;
+        height: 36px;
+        border: 1px $light-purple-03 solid;
+        border-radius: 4px;
+      }
+
+      .author-info {
+        div {
+          &:first-of-type {
+            color: $footer-home-links;
+          }
+        }
+      }
+
+      .position {
+        font-size: 10px;
+        line-height: 12px;
+        color: rgba(213, 213, 213, .6);
+      }
+    }
+  }
+
+  .post-img {
+    margin-bottom: 32px;
+    border-radius: 1rem;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 76px) 0, calc(100% - 52px) 2px, 99% 31px, 100% 70px, 100% 100%, 0 100%);
+    width: -webkit-fill-available;
+    order: 1;
+    height: fit-content;
+    overflow: hidden;
+    line-height: 0;
+
+    @include breakpoint(sm) {
+      margin-bottom: 56px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1.5px;
+      background: linear-gradient(0deg, rgba(117, 104, 151, 0), rgba(117, 104, 151, 0)),
+      radial-gradient(53.35% 50.49% at 74.11% 5.09%, #444444 0%, #222222 100%);
+      border-radius: inherit;
+      mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+      z-index: 2;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      background-image: url(/wp-content/themes/aitech/src/img/figure-grey-border.svg);
+      right: 0;
+      top: 0;
+      width: 89px;
+      height: 89px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+  }
+
+  .entry-content {
+    padding-bottom: 32px;
+    position: relative;
+
+    @include breakpoint(sm) {
+      padding-bottom: 56px;
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 32px;
+
+      @include breakpoint(sm) {
+        margin-bottom: 56px;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      background-image: url(/wp-content/themes/aitech/src/img/border-post-type.svg);
+      width: 100%;
+      height: 2px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+      @include breakpoint(sm) {
+        width: calc(100% + 200px);
+      }
+    }
+
+    ul {
+      list-style: disc;
+      margin-bottom: 32px;
+
+      @include breakpoint(sm) {
+        margin-bottom: 56px;
+      }
+    }
+
+    h2, h3, h4 {
+      margin-bottom: 32px;
+
+      @include breakpoint(sm) {
+        margin-bottom: 56px;
+      }
+    }
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+
+  .share {
+    margin: 33px auto;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: Darker Grotesque;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 18px;
+
+    .socials__item {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+
+  }
+
+}

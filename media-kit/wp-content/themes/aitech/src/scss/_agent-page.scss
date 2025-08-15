@@ -1,0 +1,666 @@
+@use "variables" as *;
+
+.agent-hero {
+  padding: 10vh 0 8vh;
+  height: 690px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  @include breakpoint(xs) {
+    height: 65vh;
+  }
+  @include breakpoint(sm) {
+    height: 100vh;
+    padding: 15vh 0 8vh;
+  }
+  @include breakpoint(lg) {
+    padding: 11vh 0 8vh;
+    height: 930px;
+  }
+
+  .agent-hero-holder {
+    max-width: 814px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      margin: 0 0 30px;
+      font-family: 'Darker Grotesque', sans-serif;
+      font-weight: 400;
+      font-size: 53px;
+      line-height: 56px;
+      color: $white;
+      @include breakpoint(sm) {
+        font-size: 64px;
+        line-height: 70px;
+      }
+      span {
+        font-size: 53px;
+        font-weight: 700;
+        background: linear-gradient(270deg, #828282 0%, #b3b3b3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    p {
+      color: $grey-text-agent;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+    }
+  }
+  video {
+    width: 100%;
+    position: absolute;
+    height: 570px;
+    inset-block-start: 22vh;
+    @include breakpoint(xs) {
+      inset-block-start: 14vh;
+      height: 50vh;
+    }
+    @include breakpoint(sm) {
+      height: 72vh;
+      inset-block-start: 26vh;
+    }
+    @include breakpoint(sml) {
+      height: 82vh;
+      inset-block-start: 20vh;
+    }
+    @include breakpoint(lg) {
+      height: 830px;
+      inset-block-start: 11vh;
+    }
+  }
+
+  .btn-holder {
+    position: relative;
+    .btn {
+      position: relative;
+      background: linear-gradient(89.55deg, #999999 1.35%, #4E4E4E 107.89%);
+      border: none;
+      &:after {
+        content: "";
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+        background: $bg-color;
+        position: absolute;
+        inset-block-start: 2px;
+        inset-inline-start: 2px;
+        transition: all .3s;
+      }
+      span {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 600;
+        color: $case-btn-color;
+        position: relative;
+        z-index: 1;
+        transition: all .3s;
+      }
+      &:hover {
+        &:after {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+.use-cases {
+  padding: 30px 0;
+  position: relative;
+  z-index: 1;
+  @include breakpoint(sm) {
+    padding: 64px 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 16px;
+    @include breakpoint(sm) {
+      font-size: 64px;
+      line-height: 64px;
+      margin-bottom: 32px;
+    }
+    span {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 38px;
+      background: linear-gradient(270deg, #828282 0%, #E3E3E3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      @include breakpoint(sm) {
+        font-size: 64px;
+        line-height: 70px;
+      }
+    }
+  }
+  p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: $grey-text-agent;
+    text-align: center;
+    @include breakpoint(sm) {
+      font-size: 16px;
+    }
+  }
+
+  .use-cases-items {
+    max-width: 1160px;
+    margin: 30px auto 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 15px;
+    @include breakpoint(xss) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 15px;
+      row-gap: 15px;
+    }
+    @include breakpoint(md) {
+      margin: 40px auto 0;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 24px;
+      row-gap: 28px;
+    }
+
+    .item {
+      overflow: hidden;
+      border-radius: 16px;
+      padding: 15px;
+      mask-size: cover;
+      background: radial-gradient(100% 100% at 100% 0%, #000 8%,  #828282 10.49%, #262626 100%);
+      position: relative;
+      border-top-right-radius: 52px;
+      @include breakpoint(sm) {
+        padding: 32px;
+      }
+      &:before {
+        content: "";
+        background: radial-gradient(100% 100% at 100% 0%, #202020 0%, #000000 100%);
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: 16px;
+        position: absolute;
+        inset-block-start: 1px;
+        inset-inline-start: 1px;
+      }
+      &:after {
+        content: "";
+        background-image: url("/wp-content/themes/aitech/src/img/card-corner.webp");
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        inset-inline-end: 0;
+        inset-block-start: 0;
+      }
+      .item-holder {
+        position: relative;
+        z-index: 1;
+
+        .heading {
+          display: flex;
+          align-items: center;
+
+          .icon {
+            height: 40px;
+            width: 100%;
+            max-width: 40px;
+            min-width: 40px;
+            border-radius: 8px;
+            border: 1px solid $case-border;
+            background: $case-icon-bg;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-inline-end: 16px;
+
+            img {
+              width: 24px;
+              height: 24px;
+              object-fit: contain;
+            }
+          }
+
+          .title {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: $white;
+            line-height: 24px;
+          }
+        }
+
+        .list {
+          margin-top: 20px;
+          @include breakpoint(sm) {
+            margin-top: 32px;
+          }
+
+          ul {
+            li {
+              font-size: 14px;
+              font-weight: 400;
+              color: $grey-text-agent;
+              margin-bottom: 5px;
+              position: relative;
+              padding-left: 21px;
+
+              &:last-of-type {
+                margin-bottom: 0;
+              }
+              &:before {
+                content: "";
+                background: $grey-text-agent;
+                border-radius: 100%;
+                width: 4px;
+                height: 4px;
+                position: absolute;
+                inset-block-start: 8px;
+                inset-inline-start: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.agent-marketplace {
+  padding: 30px 0;
+  @include breakpoint(sm) {
+    padding: 0;
+  }
+
+  .heading {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    @include breakpoint(sm) {
+      transform: translateY(64px);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 32px;
+      @include breakpoint(sm) {
+        font-size: 64px;
+        line-height: 64px;
+      }
+      span {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 38px;
+        background: linear-gradient(270deg, #828282 0%, #E3E3E3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @include breakpoint(sm) {
+          font-size: 64px;
+          line-height: 70px;
+        }
+      }
+    }
+  }
+
+  .image {
+    img {
+      width: 100%;
+    }
+  }
+  .border-text {
+    transform: translateY(-70px);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 20px 0;
+
+    @include breakpoint(sm) {
+      padding: 20px 170px;
+      margin: 0 auto;
+      max-width: 1090px;
+      background-image: url("/wp-content/themes/aitech/src/img/border-img.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center top;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: $grey-text-agent;
+      @include breakpoint(sm) {
+        font-size: 16px;
+      }
+    }
+  }
+  .btn-holder {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    @include breakpoint(sm) {
+      transform: translateY(-64px);
+    }
+    .btn {
+      position: relative;
+      background: linear-gradient(89.55deg, #999999 1.35%, #4E4E4E 107.89%);
+      border: none;
+      &:after {
+        content: "";
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+        background: $bg-color;
+        position: absolute;
+        inset-block-start: 2px;
+        inset-inline-start: 2px;
+        transition: all .3s;
+      }
+      span {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 600;
+        color: $case-btn-color;
+        position: relative;
+        z-index: 1;
+        transition: all .3s;
+      }
+      &:hover {
+        &:after {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+.agent-forge {
+  padding: 30px 0;
+  @include breakpoint(sm) {
+    padding: 50px 0 64px;
+  }
+
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    @include breakpoint(sm) {
+      transform: translateY(15px);
+      margin-bottom: 0;
+    }
+    h2 {
+      text-align: center;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 32px;
+      @include breakpoint(sm) {
+        font-size: 64px;
+        line-height: 64px;
+      }
+      span {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 38px;
+        background: linear-gradient(270deg, #828282 0%, #E3E3E3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @include breakpoint(sm) {
+          font-size: 64px;
+          line-height: 70px;
+        }
+      }
+    }
+  }
+
+  .image {
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .content-with-grid-holder {
+    max-width: 808px;
+    margin: 0 auto;
+
+    .title {
+      text-align: center;
+      font-family: 'Darker Grotesque', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: $white;
+      line-height: 24px;
+    }
+
+    .grid-block {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 15px;
+      @include breakpoint(xss) {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 24px;
+        row-gap: 24px;
+      }
+      .item {
+        overflow: hidden;
+        border-radius: 16px;
+        padding: 15px;
+        mask-size: cover;
+        background: radial-gradient(100% 100% at 100% 0%, #000 8%,  #828282 10.49%, #262626 100%);
+        position: relative;
+        border-top-right-radius: 52px;
+        @include breakpoint(sm) {
+          padding: 32px;
+        }
+        &:before {
+          content: "";
+          background: radial-gradient(100% 100% at 100% 0%, #202020 0%, #000000 100%);
+          width: calc(100% - 2px);
+          height: calc(100% - 2px);
+          border-radius: 16px;
+          position: absolute;
+          inset-block-start: 1px;
+          inset-inline-start: 1px;
+        }
+        &:after {
+          content: "";
+          background-image: url("/wp-content/themes/aitech/src/img/card-corner.webp");
+          width: 50px;
+          height: 50px;
+          background-repeat: no-repeat;
+          background-size: contain;
+          position: absolute;
+          inset-inline-end: 0;
+          inset-block-start: 0;
+        }
+        .item-holder {
+          position: relative;
+          z-index: 1;
+
+          .heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            @include breakpoint(sm) {
+              margin-bottom: 32px;
+            }
+
+            .icon {
+              height: 40px;
+              width: 100%;
+              max-width: 40px;
+              min-width: 40px;
+              border-radius: 8px;
+              border: 1px solid $case-border;
+              background: $case-icon-bg;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-inline-end: 16px;
+
+              img {
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+              }
+            }
+
+            .title {
+              font-family: 'Darker Grotesque', sans-serif;
+              font-weight: 700;
+              font-size: 18px;
+              color: $white;
+              line-height: 22px;
+              @include breakpoint(sm) {
+                font-size: 24px;
+                line-height: 24px;
+              }
+            }
+          }
+          p {
+            font-size: 14px;
+            color: $grey-text-agent;
+            line-height: 21px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.toolset {
+  padding: 30px 0;
+
+  @include breakpoint(xs) {
+    padding: 100px 0;
+    background-image: url("/wp-content/themes/aitech/src/img/toolset-bg.webp");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+  }
+  @include breakpoint(md) {
+    padding: 192px 0;
+  }
+  .content-column {
+    @include breakpoint(sm) {
+      width: 42%;
+    }
+    .mobile-image {
+      width: 100%;
+      margin-top: 30px;
+      @include breakpoint(xs) {
+        display: none;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    h2 {
+      text-align: center;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 32px;
+      margin-bottom: 20px;
+      @include breakpoint(xs) {
+        text-align: left;
+      }
+      @include breakpoint(sm) {
+        font-size: 64px;
+        line-height: 64px;
+        margin-bottom: 30px;
+      }
+      span {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 38px;
+        background: linear-gradient(270deg, #828282 0%, #E3E3E3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @include breakpoint(sm) {
+          font-size: 64px;
+          line-height: 70px;
+        }
+      }
+    }
+    .description {
+      font-family: 'Darker Grotesque', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: $white;
+      text-align: center;
+      @include breakpoint(xs) {
+        text-align: left;
+      }
+      @include breakpoint(sm) {
+        font-size: 24px;
+      }
+    }
+    .btn-holder {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      @include breakpoint(xs) {
+        justify-content: flex-start;
+      }
+      @include breakpoint(sm) {
+        margin-top: 30px;
+      }
+      .btn {
+        position: relative;
+        background: linear-gradient(89.55deg, #999999 1.35%, #4E4E4E 107.89%);
+        border: none;
+        &:after {
+          content: "";
+          width: calc(100% - 4px);
+          height: calc(100% - 4px);
+          border-top-right-radius: 16px;
+          border-bottom-left-radius: 16px;
+          background: $bg-color;
+          position: absolute;
+          inset-block-start: 2px;
+          inset-inline-start: 2px;
+          transition: all .3s;
+        }
+        span {
+          font-size: 16px;
+          line-height: 18px;
+          font-weight: 600;
+          background: linear-gradient(89.55deg, #999999 1.35%, #4E4E4E 107.89%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          position: relative;
+          z-index: 1;
+          transition: all .3s;
+        }
+        &:hover {
+          &:after {
+            opacity: 0;
+            visibility: hidden;
+          }
+          span {
+            color: $white;
+            background:  transparent;
+            -webkit-text-fill-color: $white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@keyframes marquee {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translate(-50%, 0);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}

@@ -1,0 +1,20 @@
+@use "variables" as *;
+
+.btn {
+    display: block;
+    padding: 14px 24px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border: 2px $color-accent solid;
+    color: $color-accent;
+    font-weight: 600;
+    width: fit-content;
+    transition: all .5s;
+
+    @media (pointer: fine) {
+        &:hover {
+            color: $bg-color;
+            background: $color-accent;
+        }
+    }
+}

@@ -1,0 +1,166 @@
+@use "variables" as *;
+@use "general/utils" as *;
+
+.home-numbers {
+  padding: 80px 0;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+
+    @include breakpoint(sm) {
+      margin-bottom: 16px;
+    }
+
+    span {
+      background: linear-gradient(90deg, #DDDDDD 1.76%, #444444 85.05%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  p {
+    color: $text-grey;
+    text-align: center;
+    max-width: 230px;
+    margin: 0 auto;
+
+    @include breakpoint(sm) {
+      max-width: unset;
+    }
+  }
+
+  &__items {
+    margin: 40px auto 0;
+    max-width: 1028px;
+    display: grid;
+    column-gap: 16px;
+    row-gap: 8px;
+    grid-template-columns: 1fr 1fr;
+
+    @include breakpoint(sm) {
+      margin: 80px auto 0;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 16px 40px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 164px;
+
+    @include breakpoint(sm) {
+      padding: 32px 32px 50px;
+      min-height: 280px;
+    }
+
+    &:first-child {
+      text-align: left;
+      background-image: url("../../img/numbers_mobile_card1.webp");
+
+      @include breakpoint(sm) {
+        text-align: left;
+        background-image: url("../../img/numbers-card1_bg.webp");
+      }
+    }
+    &:nth-child(2) {
+      text-align: right;
+      background-image: url("../../img/numbers_mobile_card2.webp");
+
+      @include breakpoint(sm) {
+        text-align: center;
+        background-image: url("../../img/numbers-card2_bg.webp");
+      }
+    }
+    &:nth-child(3) {
+      text-align: left;
+      background-image: url("../../img/numbers_mobile_card3.webp");
+
+      @include breakpoint(sm) {
+        text-align: right;
+        background-image: url("../../img/numbers-card3_bg.webp");
+      }
+    }
+    &:nth-child(4) {
+      text-align: right;
+      background-image: url("../../img/numbers_mobile_card4.webp");
+
+      @include breakpoint(sm) {
+        text-align: left;
+        background-image: url("../../img/numbers-card4_bg.webp");
+      }
+    }
+    &:nth-child(5) {
+      text-align: left;
+      background-image: url("../../img/numbers_mobile_card5.webp");
+      padding: 40px 16px 16px;
+
+      @include breakpoint(sm) {
+        padding: 32px 32px 50px;
+        text-align: center;
+        background-image: url("../../img/numbers-card5_bg.webp");
+      }
+    }
+    &:nth-child(6) {
+      text-align: right;
+      background-image: url("../../img/numbers_mobile_card6.webp");
+      padding: 40px 16px 16px;
+
+      @include breakpoint(sm) {
+        padding: 32px 32px 50px;
+        text-align: right;
+        background-image: url("../../img/numbers-card6_bg.webp");
+      }
+    }
+
+    .company {
+      font-family: Darker Grotesque;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      color: $text-grey;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+
+      @include breakpoint(sm) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+
+    .metric {
+      font-family: Roboto Flex;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 12px;
+      color: $white;
+
+      @include breakpoint(sm) {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .value {
+      font-family: Darker Grotesque;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 40px;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      background: linear-gradient(90deg, #DDDDDD 1.76%, #444444 85.05%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: rgba(0, 0, 0, 0);
+
+      @include breakpoint(sm) {
+        font-size: 96px;
+        line-height: 86.4px;
+      }
+    }
+  }
+
+}

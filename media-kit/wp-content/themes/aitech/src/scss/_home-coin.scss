@@ -1,0 +1,119 @@
+@use "variables" as *;
+@use "general/utils" as *;
+
+.home-coin {
+  padding: 80px 0;
+  color: $text-grey;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    @include breakpoint(sm) {
+      flex-direction: row;
+    }
+
+    .content-wrap {
+      position: relative;
+      width: 100%;
+      order: 2;
+
+      @include breakpoint(sm) {
+        order: 1;
+      }
+
+      &:before {
+        content: '';
+        width: 54px;
+        height: 150%;
+        position: absolute;
+        background-image: url("/wp-content/themes/aitech/src/img/coin-liner.svg");
+        position: absolute;
+        top: -29px;
+        background-size: contain;
+        left: -7px;
+        background-repeat: no-repeat;
+
+        @include breakpoint(sm) {
+          background-size: inherit;
+          width: 80px;
+          top: -120px;
+          left: -50px;
+        }
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 32px;
+        margin-bottom: 48px;
+        margin-left: 23px;
+
+        @include breakpoint(sm) {
+          font-size: 64px;
+          line-height: 57.6px;
+          margin-bottom: 64px;
+          margin-left: 0;
+        }
+
+        span {
+          @include gradient-text($gradient-grey-home);
+        }
+      }
+
+      .content {
+        max-width: 532px;
+        margin-left: 40px;
+
+        p {
+          font-size: 12px;
+          line-height: 16px;
+
+          @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+
+        .btn {
+          margin-top: 32px;
+          border: none;
+          background: linear-gradient(90deg, #777777 0%, #222222 100%);
+          color: $white;
+          transition: all .3s;
+          position: relative;
+
+          &:hover {
+            background: $button-bg;
+
+            &:before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              padding: 2px;
+              background: linear-gradient(90deg, #777777 0%, #222222 100%);
+              border-radius: inherit;
+              mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+              z-index: 2;
+            }
+          }
+        }
+      }
+    }
+
+    .img-wrap {
+      order: 1;
+      width: 75%;
+
+      @include breakpoint(sm) {
+        order: 2;
+      }
+
+      video {
+        width: 100%;
+      }
+    }
+  }
+}

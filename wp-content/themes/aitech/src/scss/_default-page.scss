@@ -1,0 +1,88 @@
+@use "variables" as *;
+@use "general/utils" as *;
+
+.default-page {
+  color: $white;
+  background: radial-gradient(49.76% 44.16% at 50.13% 49.87%, #343434 0%, #040404 100%);
+
+  article {
+    .container {
+      @include breakpoint(sm) {
+        max-width: 912px;
+      }
+    }
+  }
+
+
+  .entry-header, .entry-content {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .entry-header {
+    margin-top: 114px;
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      line-height: 32px;
+      margin: 8px 0 24px;
+
+      @include breakpoint(sm) {
+        font-size: 64px;
+        line-height: 57px;
+        margin: 0 0 80px;
+      }
+    }
+
+  }
+
+  .entry-content {
+    padding-bottom: 32px;
+    position: relative;
+
+    @include breakpoint(sm) {
+      padding-bottom: 160px;
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    ul {
+      list-style: disc;
+      margin-bottom: 16px;
+      margin-left: 14px;
+
+    }
+
+    h2, h3, h4 {
+      margin-bottom: 32px;
+      font-weight: 700;
+
+      @include breakpoint(sm) {
+        margin-bottom: 56px;
+      }
+    }
+
+    a {
+      color: $dark-grey-links;
+      text-decoration: underline;
+    }
+
+    h2 {
+      font-size: 48px;
+      line-height: 48px;
+      margin: 40px 0;
+    }
+    h1 span,
+    h2 span,
+    h3 span,
+    h4 span,
+    h5 span,
+    h6 span {
+      color: $dark-grey-links;
+    }
+  }
+
+}

@@ -1,0 +1,15 @@
+@use "../_variables" as *;
+@use 'sass:math';
+
+@mixin rem($property, $value) {
+    #{$property}: #{math.div($value, 15)}rem;
+}
+
+@mixin responsive-font-size($base-size: 16px, $scale-factor: 4) {
+    font-size: calc(#{$base-size} + (#{$scale-factor} * ((100vw - 1440px) / 960)));
+}
+
+
+.skip-link.screen-reader-text {
+    display: none;
+}

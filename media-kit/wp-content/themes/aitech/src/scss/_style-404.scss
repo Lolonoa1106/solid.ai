@@ -1,0 +1,76 @@
+@use "variables" as *;
+@use "general/utils" as *;
+
+.error-404 {
+  background: radial-gradient(49.76% 44.16% at 50.13% 49.87%, #190B30 0%, #01020A 100%);
+  height: calc(100dvh - 115px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+
+  h1 {
+    font-weight: 700;
+    font-size: 62vw;
+    line-height: 62vw;
+    letter-spacing: -0.03em;
+    text-align: center;
+    @include gradient-text($gradient-purple);
+    width: fit-content;
+    margin: 0 auto;
+
+    @include breakpoint(sm) {
+      font-size: 572px;
+      line-height: 514.8px;
+    }
+  }
+
+  &__inner {
+    background-image: url("../../img/404-inner-bg.webp");
+    background-size: 100% 100%;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 40px;
+    margin: -20% auto 0;
+
+    @include breakpoint(sm) {
+      padding: 80px 127px 100px;
+      margin: -150px auto 0;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 30px;
+      text-align: center;
+      color: $white;
+      margin-bottom: 16px;
+      text-align: center;
+
+      @include breakpoint(sm) {
+        font-size: 48px;
+        line-height: 48px;
+        margin-bottom: 32px;
+      }
+    }
+
+    p {
+      color: $light-purple;
+      text-align: center;
+    }
+
+    .btn {
+      margin-top: 16px;
+      border: none;
+      background: linear-gradient(83.94deg, #CAB8F9 2.42%, #875FF2 36.13%, #6231E6 59.23%, #381D89 83.71%, #020416 108.26%);
+      color: $white;
+
+      @include breakpoint(sm) {
+        margin-top: 32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,591 @@
+@use "variables" as *;
+@use "general/utils" as *;
+
+
+.explore-products {
+  padding: 80px 0;
+
+  @include breakpoint(sm) {
+    padding: 64px 0 80px;
+  }
+
+  .heading {
+    text-align: center;
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      span {
+        font-weight: 700;
+        background: linear-gradient(89.55deg, #E3E3E3 1.35%, #6D6E71 107.89%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+      }
+    }
+    p {
+      margin: 0;
+      color: $grey-text-explore;
+
+      br {
+        display: none;
+        @include breakpoint(sm) {
+          display: initial;
+        }
+      }
+    }
+  }
+  .cards-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 30px;
+    margin-bottom: 30px;
+    @include breakpoint(sm) {
+      margin-top: 50px;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 0;
+      column-gap: 24px;
+      margin-bottom: 40px;
+    }
+    .card {
+      border-radius: 24px;
+      position: relative;
+      padding: 22px 0 32px;
+      display: flex;
+      flex-direction: column;
+      &:before {
+        content: "";
+        background: linear-gradient(308.34deg, #222222 2.49%, #444444 85.54%);
+        border-radius: 24px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset-inline-start: 0;
+        inset-block-start: 0;
+      }
+      &:after {
+        content: "";
+        background: radial-gradient(51.51% 112.55% at 79.4% 61.46%, rgba(0, 0, 0, 0) 55.31%, #000000 100%),
+        linear-gradient(194.03deg, rgba(0, 0, 0, 0) 50%, #000000 91.32%);
+        border-radius: 24px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        position: absolute;
+        inset-inline-start: 1px;
+        inset-block-start: 1px;
+        z-index: 1;
+      }
+      .icon {
+        position: absolute;
+        width: 113px;
+        height: 186px;
+        inset-block-start: -1px;
+        inset-inline-start: 0;
+        background: url("/wp-content/themes/aitech-new/src/img/explore-mask.webp");
+        z-index: 2;
+        img {
+          width: 40px;
+          height: 40px;
+          object-fit: contain;
+          margin-top: 33px;
+          margin-left: 25px;
+        }
+      }
+      .image-holder,
+      .content {
+        position: relative;
+        z-index: 2;
+      }
+      .image-holder {
+        padding-inline-start: 88px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: flex-end;
+        img {
+          max-width: 400px;
+          width: 100%;
+          @include breakpoint(sm) {
+            max-width: 100%;
+          }
+        }
+      }
+      .content {
+        margin-top: auto;
+        padding: 0 30px;
+        .title {
+          font-family: 'Darker Grotesque', sans-serif;
+          font-size: 32px;
+          line-height: 36px;
+          font-weight: 700;
+          background: linear-gradient(90deg, #FFFFFF 1.76%, #555555 95.59%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: rgba(0, 0, 0, 0);
+          margin-bottom: 22px;
+        }
+        p {
+          color: $text-grey;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .btn-holder {
+    display: flex;
+    justify-content: center;
+    .primary-btn {
+      width: fit-content;
+      padding: 11px 24px;
+      position: relative;
+      text-align: center;
+      background: linear-gradient(90deg, #777777 0%, #222222 100%);
+      border-top-left-radius: 2px;
+      border-top-right-radius: 16px;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 2px;
+      z-index: 2;
+      cursor: pointer;
+      span {
+        font-size: 16px;
+        line-height: 18px;
+        position: relative;
+        z-index: 1;
+        font-family: "Roboto Flex", sans-serif;
+        font-weight: 600;
+        color: $white;
+      }
+      &:after {
+        content: "";
+        background: $hover-btn;
+        position: absolute;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        inset-inline-start: 2px;
+        inset-block-start: 2px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 2px;
+      }
+      &:hover {
+        span {
+          background: linear-gradient(90deg, #DDDDDD 1.76%, #444444 85.05%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        }
+        &:after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  .aitech-labs-explore-form {
+    padding: 40px 0 0;
+    display: none;
+    min-height: 790px;
+    height: 100%;
+    transition: height .5s, padding .8s;
+
+    @include breakpoint(sm) {
+      padding: 80px 0 0;
+      min-height: 852px;
+    }
+    .mask-holder {
+      position: relative;
+      margin: 0 auto;
+      border-radius: 25px;
+      max-width: 100%;
+      @include breakpoint(sm) {
+        max-width: 800px;
+      }
+      &:after {
+        content: "";
+        background: linear-gradient(0deg, #000000, #000000),
+        radial-gradient(48.98% 49.36% at 50% 7.73%, rgba(114, 114, 114, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+        backdrop-filter: blur(32px);
+        position: absolute;
+        inset-block-start: 1px;
+        inset-inline-start: 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        z-index: 2;
+        border-radius: 25px;
+      }
+      &:before {
+        content: "";
+        background: radial-gradient(20.51% 32.71% at 50% 0.89%, rgba(253, 253, 253, 0.4) 0%, rgba(85, 85, 85, 0.4) 100%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        border-radius: 25px;
+        z-index: 1;
+      }
+    }
+    .form-section-holder {
+      position: relative;
+      border-radius: 15px;
+      padding: 50px 16px 40px;
+      z-index: 3;
+
+      @include breakpoint(sm) {
+
+        padding: 80px;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 32px;
+        line-height: 32px;
+        font-weight: 400;
+        color: $white;
+        @include breakpoint(sm) {
+          font-size: 40px;
+          line-height: 44px;
+          text-align: center;
+        }
+        span {
+          font-weight: 700;
+          background: linear-gradient(89.55deg, #E3E3E3 1.35%, #6D6E71 107.89%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        }
+        br {
+          @include breakpoint(sm) {
+            display: none;
+          }
+        }
+      }
+
+      .form-holder {
+        margin: 0 auto;
+        .form-block-message {
+          display: none;
+          padding-top: 102px;
+          @include breakpoint(sm) {
+            padding-top: 137px;
+          }
+          .subtitle {
+            font-size: 12px;
+            line-height: 16px;
+            color: $white;
+            text-align: center;
+            @include breakpoint(sm) {
+              font-size: 16px;
+              line-height: 24px;
+            }
+
+          }
+          .submit {
+            display: flex;
+            position: relative;
+            margin: 40px auto 0;
+            padding: 2px;
+            width: fit-content;
+            &:before {
+              content: "";
+              background: linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              inset-inline-start: 0;
+              inset-block-start: 0;
+              border-top-right-radius: 16px;
+              border-top-left-radius: 2px;
+              border-bottom-right-radius: 2px;
+              border-bottom-left-radius: 16px;
+            }
+            &:after {
+              content: "";
+              background: $button-bg;
+              width: calc(100% - 4px);
+              height: calc(100% - 4px);
+              position: absolute;
+              inset-inline-start: 2px;
+              inset-block-start: 2px;
+              border-top-right-radius: 16px;
+              border-top-left-radius: 2px;
+              border-bottom-right-radius: 2px;
+              border-bottom-left-radius: 16px;
+              transition: all .3s;
+            }
+            #form-message-button {
+              border: none;
+              border-top-right-radius: 16px;
+              border-top-left-radius: 2px;
+              border-bottom-right-radius: 2px;
+              border-bottom-left-radius: 16px;
+              text-align: center;
+              display: block;
+              font-family: 'Roboto Flex', sans-serif;
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 16px;
+              color: $bg-color;
+              background: linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: rgba(0, 0, 0, 0);
+              transition: all .3s;
+              position: relative;
+              z-index: 1;
+              cursor: pointer;
+              padding: 16px;
+              width: fit-content;
+              min-width: 169px;
+              @include breakpoint(sm) {
+                padding: 15px 24px;
+                font-size: 16px;
+                min-width: auto;
+              }
+            }
+            &:hover {
+              &:after {
+                background: transparent;
+              }
+              #form-message-button {
+                background: rgba(0, 0, 0, 0);
+                color: $bg-color;
+                -webkit-text-fill-color: $bg-color;
+              }
+            }
+          }
+        }
+        .form-block {
+          .wpcf7 {
+            margin-top: 40px;
+            @include breakpoint(sm) {
+              margin: 40px auto 0;
+            }
+            form {
+              text-align: left;
+              .wpcf7-spinner {
+                display: none;
+              }
+              select {
+                display: none;
+                option {
+                  display: none;
+                }
+              }
+
+
+              .select2-container {
+                width: 100% !important;
+                height: 48px;
+                margin-top: 8px;
+                .select2-selection.select2-selection--single {
+                  border: none;
+                  background: none;
+                  height: 48px;
+                }
+                .select2-selection__placeholder {
+	                color: rgba(225, 227, 254, .3) !important;
+                }
+                .select2-selection__rendered {
+                  font-family: 'Roboto', sans-serif;
+                  font-weight: 400;
+                  padding: 10px 16px;
+                  border: 1px solid rgba(117, 104, 151, 0.3);
+                  font-size: 12px;
+                  line-height: 26px;
+                  color: #fff !important;
+                  background: rgba(1, 2, 10, 0.3);
+                  border-radius: 6px;
+                  width: 100%;
+                  opacity: 1;
+                  transition: all .3s;
+                  &:hover {
+                    border: 1px solid dimgray;
+                  }
+                }
+                .select2-selection__arrow {
+                  top: 50%;
+                  transform: translateY(-50%);
+                  background-image: url("/wp-content/themes/aitech/src/img/arrow-select.svg");
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  right: 10px;
+                  width: 16px;
+                  b {
+                    display: none;
+                  }
+                }
+                &.select2-container--open {
+                  .select2-selection__arrow {
+                    background-image: url("/wp-content/themes/aitech/src/img/arrow-select.svg");
+                  }
+                }
+              }
+              .wpcf7-response-output {
+                display: none;
+              }
+              .submit {
+                display: block;
+                position: relative;
+                margin: 40px auto 0;
+                padding: 2px;
+                width: fit-content;
+                &:before {
+                  content: "";
+                  background: linear-gradient(90deg, #777777 0%, #222222 100%);
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  inset-inline-start: 0;
+                  inset-block-start: 0;
+                  border-top-right-radius: 16px;
+                  border-top-left-radius: 2px;
+                  border-bottom-right-radius: 2px;
+                  border-bottom-left-radius: 16px;
+                }
+                .wpcf7-submit {
+                  border: none;
+                  border-top-right-radius: 16px;
+                  border-top-left-radius: 2px;
+                  border-bottom-right-radius: 2px;
+                  border-bottom-left-radius: 16px;
+                  text-align: center;
+                  display: block;
+                  font-family: 'Roboto Flex', sans-serif;
+                  font-weight: 600;
+                  font-size: 16px;
+                  line-height: 18px;
+                  color: $white;
+                  background: transparent;
+                  transition: all .3s;
+                  position: relative;
+                  z-index: 1;
+                  cursor: pointer;
+                  padding: 16px;
+                  width: fit-content;
+                  @include breakpoint(sm) {
+                    padding: 15px;
+                  }
+                  &:hover {
+                    background: $hover-btn;
+                    border:none;
+                  }
+                }
+              }
+              .column {
+                margin-bottom: 24px;
+              }
+
+              .two.column {
+                margin-bottom: 4px;
+                @include breakpoint(sm) {
+                  margin-bottom: 16px;
+                }
+                p {
+                  display: flex;
+                  flex-direction: column;
+                  @include breakpoint(sm) {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    column-gap: 16px;
+                    row-gap: 12px;
+                  }
+                  br {
+                    display: none;
+                  }
+                }
+              }
+              label {
+                font-family: 'Darker Grotesque', sans-serif;
+                font-weight: 600;
+                text-align: left;
+                font-size: 18px;
+                line-height: 18px;
+                color: #D0D0D0;
+                position: relative;
+                width: 100%;
+                display: block;
+                margin-bottom: 12px;
+                @include breakpoint(sm) {
+                  font-size: 18px;
+                  line-height: 25px;
+                  margin-bottom: 0;
+                }
+                .wpcf7-form-control-wrap {
+                  position: relative;
+                  display: block;
+                  line-height: 0;
+                }
+                input,
+                textarea {
+                  width: 100%;
+                  padding: 16px;
+                  border: 1px solid rgba(105, 105, 105, .3);;
+                  font-size: 12px;
+                  color: #fff;
+                  background: rgba(1, 2, 10, 0.3);
+                  border-radius: 6px;
+                  transition: all .3s ease-in-out;
+                  margin-top: 8px;
+                  resize: none;
+                  @include breakpoint(sm) {
+                    font-size: 12px;
+                    padding: 16px;
+                  }
+                  &::placeholder {
+                    font-size: 12px;
+                    color: rgba(225, 227, 254, .3);
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                  }
+                  &:focus,
+                  &:focus-within,
+                  &:focus-visible {
+                    outline: none;
+                    color: rgba(225, 227, 254, 1);
+                    border: 1px solid $grey-1;
+                  }
+                  &:hover {
+                    border: 1px solid $grey-1;
+                  }
+                  &.wpcf7-not-valid {
+                    border: 1px solid rgba(188, 71, 71, 0.3) !important;
+                  }
+                }
+                textarea {
+                  height: 96px;
+                }
+                .wpcf7-not-valid-tip {
+                  position: absolute;
+                  font-size: 12px;
+                  line-height: 14px;
+                  inset-inline-start: 0;
+                  top: 100%;
+                  color: #E12B2B;
+                }
+              }
+            }
+          }
+
+          .after-form {
+            margin: 32px auto;
+            text-align: center;
+
+            @include breakpoint(sm) {
+              margin: 64px auto 100px;
+            }
+          }
+        }
+
+      }
+
+    }
+    &.animated-popup {
+      height: 0;
+      min-height: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+  }
+}

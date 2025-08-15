@@ -21,7 +21,7 @@
 	</defs>
 	<style>
 		tspan { white-space:pre } 
-		.t0 { font-size: 38px;fill: #ffffff;font-weight: 400;font-family: "Fenix", "Fenix" } 
+		.t0 { font-size: 38px;fill: #bababa;font-weight: 400;font-family: "Fenix", "Fenix" } 
 		.s1 { fill: url(#g1) } 
 		.s2 { fill: url(#g2) } 
 		.s3 { fill: url(#g3) } 
@@ -29,7 +29,7 @@
 		.s5 { mix-blend-mode: color;fill: #000000 } 
 	</style>
 	<use  href="#img1" x="0" y="0"/>
-	<text id="S  O  L  I  D" style="transform: matrix(1,0,0,1,632.167,369)" >
+	<text id="S  O  L  I  D" style="transform: matrix(1,0,0,1,629.417,369)" >
 		<tspan x="0" y="0" class="t0">S</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">O</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">L</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">I</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">D
 </tspan>
 	</text>
@@ -37,5 +37,5 @@
 	<path fill-rule="evenodd" class="s2" d="m0 0h1439v793h-1439z"/>
 	<path fill-rule="evenodd" class="s3" d="m0 0h1439v793h-1439z"/>
 	<path fill-rule="evenodd" class="s4" d="m0 0h1439v793h-1439z"/>
-	<path fill-rule="evenodd" class="s5" d="m0 0h1439v793h-1439z"/>
+	<path fill-rule="evenodd" class="s5" d="m-1 7h1439v793h-1439z"/>
 </svg>
